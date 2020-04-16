@@ -272,8 +272,15 @@ function getModelYears([...someArray]) {
  * For example, if getCarInfoById is invoked with the inventory and the number 1,
  * it will return `This is a Lincoln Navigator`.
 */
-function getCarInfoById(/* code here */) {
-  /* code here */
+function getCarInfoById([...someArray], index) {
+  const idArray = []; 
+  for (i=0; i<someArray.length; i++){
+    if (someArray[i].id === index){
+      idArray.push(someArray[i]); 
+    }
+  }
+
+  return `This is a ${idArray[0].car_make} ${idArray[0].car_model}`; 
 }
 
 /**
@@ -290,8 +297,25 @@ function getCarInfoById(/* code here */) {
  * with a `car_year` which is at most the given desired max year,
  * in the same order as they appear in the original inventory.
 */
-function getOlderCars(/* code here */) {
-  /* code here */
+function getOlderCars([...someArray], desiredYear){
+  /*
+  what do we need?
+  -- new array for olderCars
+  -- for loop to look through whole array passed in
+  -- if statement that checks if someArray.year is older than or equal to desiredYear
+  -- return new array of older cars in same order they are in from original array
+   */
+
+  const olderCarArray =[]; 
+
+  for (i=0; i<someArray.length; i++){
+    if (someArray[i].car_year <= desiredYear) {
+      olderCarArray.push(someArray[i]);
+    }
+  }
+
+  return olderCarArray; 
+
 }
 
 /**
@@ -307,8 +331,15 @@ function getOlderCars(/* code here */) {
  * made by either `Audi` or `Mercedes-Benz` or `Volkswagen` or `BMW`,
  * in the same order as they appear in the original inventory.
 */
-function getGermanCars(/* code here */) {
-  /* code here */
+function getGermanCars([...someArray]) {
+  const germanCarArray = [];
+
+  for (i=0; i<someArray.length; i++){
+    if (someArray[i].car_make === 'Audi' || someArray[i].car_make === 'Mercedes-Benz' || someArray[i].car_make === 'Volkswagen' || someArray[i].car_make === 'BMW') {
+      germanCarArray.push(someArray[i]); 
+    }
+  }
+  return germanCarArray; 
 }
 
 /**
@@ -324,8 +355,12 @@ function getGermanCars(/* code here */) {
  *         (1) causes the odometer in the object to be increased by the distance,
  *         (2) returns the updated value of the `odometer`.
 */
-function carMaker(/* code here */) {
-  /* code here */
+
+// not sure how to do this one
+
+function carMaker(odometer) {
+  /* what we may need */ 
+  return {odometer, drive: {odometer: this.odomoter + distance}}
 }
 
 /// ////// END OF CHALLENGE /////////
